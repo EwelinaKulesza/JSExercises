@@ -1,4 +1,4 @@
-let participants = 5; 
+let participants = 9; 
 let partyTable = [];
 let i = 0;
 
@@ -8,11 +8,17 @@ while (i < participants){
 }
 i = 0;
 
-// while (i>1) {
-//     this.partyTable = partyOneRund(this.partyTable);
-//     i = this.partyTable.length;
+// for (let i=partyTable.length;i>1;){
+//     partyTable = partyOneRund(partyTable);
+//     i = partyTable.length;
 // }
-// console.log(partyTable);
+// console.log(partyTable[0]);
+
+while(partyTable.length>1){
+    partyTable = partyOneRund(partyTable);
+}
+console.log(partyTable[0]);
+
 
 // ----- realizuje wycinanie kolegi obok -----
 // po analizie sytuacji to wychodzi na to, że jeśli ilość
@@ -55,4 +61,4 @@ function subOddTable(array) {
 //sprawdz czy dobrze wybiera nieparzyste
 //console.log(subOddTable(partyTable));
 //pokarz co się będzie działo po jednej rundzie przyjęcia
-console.log(partyOneRund(partyTable));
+//console.log(partyOneRund(partyTable));
