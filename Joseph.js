@@ -1,4 +1,4 @@
-let participants = 9; 
+let participants = 5; 
 let partyTable = [];
 let i = 0;
 
@@ -6,6 +6,14 @@ let i = 0;
 while (i < participants){
     partyTable[i] = ++i;
 }
+i = 0;
+
+// while (i>1) {
+//     this.partyTable = partyOneRund(this.partyTable);
+//     i = this.partyTable.length;
+// }
+// console.log(partyTable);
+
 // ----- realizuje wycinanie kolegi obok -----
 // po analizie sytuacji to wychodzi na to, że jeśli ilość
 // uczesników jest parzysta to przeżyją sami nieparzyści
@@ -14,15 +22,20 @@ while (i < participants){
 // Zatem z tablicy, którą mam: 
 // jak parzyści -> biorę podtablicę nieparzystych
 // jak nieparzyści -> wycinam dwóch pierwszych i biorę tablicę nieparzystych
-i = 0;
-if ((partyTable.length % 2) != 0) {
-    console.log("nieparzyści");
 
-} else {
-    console.log("przyści");
+function partyOneRund(array) {
+    let afterParty = []
+    if ((partyTable.length % 2) != 0) {
+        //console.log("nieparzyści");
+        let temp = array.slice(2, array.length);
+        afterParty = subOddTable(temp);
 
-}
-
+    } else {
+        //console.log("przyści");
+        afterParty = subOddTable(array);
+    };
+    return afterParty;
+};
 
 function subOddTable(array) {
     temp = [];
@@ -33,15 +46,13 @@ function subOddTable(array) {
         temp[i] = array[j]
         i+=1;
         j+=2;
-    }
-    // for(let i = 0; i<=(array.length-2); i+=2){
-    //     //if (i>array.length-1) {i+=3;continue;}
-    //     temp[j] = array[i];
-    //     j++;
-    // }
+    };
     return temp;
   }
 
-
+//pokarz tablice z wszystkimi uczestnikami
 //console.log(partyTable);
-console.log(subOddTable(partyTable));
+//sprawdz czy dobrze wybiera nieparzyste
+//console.log(subOddTable(partyTable));
+//pokarz co się będzie działo po jednej rundzie przyjęcia
+console.log(partyOneRund(partyTable));
