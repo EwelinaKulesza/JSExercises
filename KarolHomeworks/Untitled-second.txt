@@ -1,0 +1,4 @@
+let morseTable = [".--.",".--.",".--."];
+let letersTable = ["a","b","c"];
+
+console.log(morseTable(1));
