@@ -1,3 +1,5 @@
+"use strict" 
+
 var longestPalindrome = function(s) {
     let currentLongest = [0, 1];
 
